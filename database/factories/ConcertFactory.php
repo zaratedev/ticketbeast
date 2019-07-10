@@ -14,5 +14,6 @@ $factory->define(App\Models\Concert::class, function (Faker $faker) {
         'state' => $faker->state,
         'zip' => $faker->postcode,
         'additional_information' => $faker->phoneNumber,
+        'published_at' => now()->toDateString(),
     ];
 });
