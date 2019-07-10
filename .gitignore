@@ -1,11 +1,36 @@
-/node_modules
+.phpunit.result.cache
+
+# Laravel
+/vendor
 /public/hot
 /public/storage
-/storage/*.key
-/vendor
-.env
-.phpunit.result.cache
 Homestead.json
 Homestead.yaml
+/.vagrant
+/storage/*.key
+/.idea
+
+# Configuration
+.env
+
+# Assets development
 npm-debug.log
+/public/hot
+/node_modules
+/resources/assets/bower_components
+
+# Composer
+composer.phar
+
+# OS
+.DS_Store
+Thumbs.db
+.idea/
+.tags
+
+# Packages
+_ide_helpers.php
+.vagrant/
+/nbproject/
+tests/_output/*
 yarn-error.log
