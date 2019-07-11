@@ -12,11 +12,11 @@ class ViewConcertListingTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function user_can_view_a_concert_listing()
+    public function user_can_view_a_published_concert_listing()
     {
         $this->withoutExceptionHandling();
 
-        $concert = factory(Concert::class)->create();
+        $concert = factory(Concert::class)->states('published')->create();
 
         $response = $this->get(route('concerts.show', $concert->id));
 
@@ -27,9 +27,7 @@ class ViewConcertListingTest extends TestCase
     /** @test */
     public function user_cannot_view_unpublished_concert_listings()
     {
-        $concert = factory(Concert::class)->create([
-            'published_at' => null,
-        ]);
+        $concert = factory(Concert::class)->states('unpublished')->create();
 
         $response = $this->get(route('concerts.show', $concert->id));
 

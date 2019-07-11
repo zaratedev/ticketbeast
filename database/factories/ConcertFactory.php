@@ -1,6 +1,7 @@
 <?php
 
 use Faker\Generator as Faker;
+use Carbon\Carbon;
 
 $factory->define(App\Models\Concert::class, function (Faker $faker) {
     return [
@@ -14,6 +15,18 @@ $factory->define(App\Models\Concert::class, function (Faker $faker) {
         'state' => $faker->state,
         'zip' => $faker->postcode,
         'additional_information' => $faker->phoneNumber,
-        'published_at' => now()->toDateString(),
+    ];
+});
+
+$factory->state(App\Models\Concert::class, 'published', function ($faker) {
+    return [
+        'published_at' => Carbon::parse('-1 week'),
+    ];
+});
+
+
+$factory->state(App\Models\Concert::class, 'unpublished', function ($faker) {
+    return [
+        'published_at' => null
     ];
 });
