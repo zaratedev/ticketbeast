@@ -3,11 +3,10 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Models\Concert;
-use App\Billing\FakePaymentGateway;
 use App\Billing\PaymentGateway;
+use App\Billing\FakePaymentGateway;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class PurchaseTicketsTest extends TestCase
 {
@@ -53,6 +52,5 @@ class PurchaseTicketsTest extends TestCase
 
         $response->assertStatus(422);
         $response->assertJsonValidationErrors(['email']);
-
     }
 }

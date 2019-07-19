@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Concert;
 use Illuminate\Http\Request;
 use App\Billing\PaymentGateway;
-use App\Models\Concert;
 
 class ConcertOrdersController extends Controller
 {
+    /**
+     * @var \App\Billing\PaymentGateway;
+     */
     protected $paymentGateway;
 
     public function __construct(PaymentGateway $paymentGateway)
@@ -15,6 +18,11 @@ class ConcertOrdersController extends Controller
         $this->paymentGateway = $paymentGateway;
     }
     
+    /**
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function store(Request $request, $id)
     {
         $request->validate([
