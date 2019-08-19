@@ -15,6 +15,19 @@ class Ticket extends Model
     protected $guarded = [];
 
     /**
+     * Release order_id.
+     *
+     * @param  array  $options
+     * @return bool
+     */
+    public function release(array $options = [])
+    {
+        $this->forceFill(['order_id' => null]);
+
+        return $this->save($options);
+    }
+
+    /**
      * Include only ticket's available.
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
