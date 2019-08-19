@@ -23,8 +23,7 @@ class PurchaseTicketsTest extends TestCase
     /** @test */
     public function customer_can_purchase_tickets_to_an_published_concert()
     {
-        $concert = factory(Concert::class)->states('published')->create(['ticket_price' => 3250]);
-        $concert->addTickets(3);
+        $concert = factory(Concert::class)->states('published')->create(['ticket_price' => 3250])->addTickets(3);
         
         $response = $this->orderTicket($concert, [
             'email' => 'john@example.com',
