@@ -3,8 +3,6 @@
 namespace Tests\Unit\Billing;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Billing\FakePaymentGateway;
 use App\Billing\PaymentFailedException;
 

@@ -5,8 +5,8 @@ namespace Tests\Unit;
 use Carbon\Carbon;
 use Tests\TestCase;
 use App\Models\Concert;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Exceptions\NotEnoughTicketsException;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ConcertTest extends TestCase
 {

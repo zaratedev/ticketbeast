@@ -3,10 +3,17 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Ticket extends Model
 {
-    public function scopeAvailable($query)
+    /**
+     * Include only ticket's available.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return void
+     */
+    public function scopeAvailable(Builder $query)
     {
         return $query->whereNull('order_id');
     }

@@ -2,9 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Models\Concert;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
+use App\Models\Concert;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ViewConcertListingTest extends TestCase

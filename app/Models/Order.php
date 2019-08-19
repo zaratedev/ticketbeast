@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Order extends Model
 {
@@ -13,7 +14,12 @@ class Order extends Model
      */
     protected $guarded = [];
 
-    public function tickets()
+    /**
+     * Define a one-to-many relationships.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tickets() : HasMany
     {
         return $this->hasMany(Ticket::class);
     }

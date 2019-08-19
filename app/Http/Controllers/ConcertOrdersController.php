@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Concert;
 use Illuminate\Http\Request;
-use App\Billing\PaymentGateway;
-use App\Billing\PaymentFailedException;
 use App\Exceptions\NotEnoughTicketsException;
+use App\Billing\{ PaymentGateway, PaymentFailedException };
 
 class ConcertOrdersController extends Controller
 {
@@ -24,6 +23,7 @@ class ConcertOrdersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
+     * @throws \App\Billing\PaymentFailedException|\App\Exceptions\NotEnoughTicketsException
      */
     public function store(Request $request, $id)
     {
