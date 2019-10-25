@@ -24,6 +24,16 @@ class Order extends Model
     }
 
     /**
+     * Count tickets.
+     *
+     * @return int
+     */
+    public function ticketQuantity() : int
+    {
+        return $this->tickets()->count();
+    }
+
+    /**
      * Define a one-to-many relationships.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

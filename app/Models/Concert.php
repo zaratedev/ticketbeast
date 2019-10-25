@@ -113,6 +113,22 @@ class Concert extends Model
     }
 
     /**
+     * Determine if has order for customer email.
+     *
+     * @param  string  $customerEmail
+     * @return boolean
+     */
+    public function hasOrderFor(string $customerEmail) : bool
+    {
+        return $this->orders()->where('email', $customerEmail)->count() > 0;
+    }
+
+    public function ordersFor(string $customerEmail)
+    {
+        return $this->orders()->where('email', $customerEmail)->get();
+    }
+
+    /**
      * Define a one-to-many relationships.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
